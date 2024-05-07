@@ -58,6 +58,7 @@ class Bird:
         self.rct: pg.Rect = self.img.get_rect()
         self.rct.center = xy
         self.dire = (+5,0)
+        self.dire =()  
 
     def change_img(self, num: int, screen: pg.Surface):
         """
@@ -124,6 +125,9 @@ class Beam:
         """
         あとでかく(これあかんやつ)
         """
+        self.vx, self.vy = bird.dire
+        self.ang = math.atan2(-self.vy, self.vx)
+        self.img = pg.transform.rotozoom(pg.image.load("fig/beam.png"),math.degrees(self.ang) , 2.0)
         self.img = pg.transform.rotozoom(pg.image.load("fig/beam.png"), 0, 2.0)  # ビーム画像Surface
         self.vx, self.vy = bird.dire
         self.ang = math.atan2(-self.vy, self.vx)
