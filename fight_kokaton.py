@@ -162,6 +162,10 @@ def main():
             pg.display.update()
             time.sleep(1)
             return
+        if not (beam is not None or bomb is not None):
+            if beam.rct.colliderect(bomb.rect):
+                beam = None
+                beam = None
 
         key_lst = pg.key.get_pressed()
         bird.update(key_lst, screen)
