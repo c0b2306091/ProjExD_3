@@ -145,6 +145,9 @@ class Beam:
             screen.blit(self.img, self.rct)
 
 class explosion():
+    """
+    ここで爆発のエフェクト作ります
+    """
     beffect = pg.image.load("fig/explosion.gif")
     fbeffect = pg.transform.flip(beffect,True,False)
     life = 3 #爆発時間
