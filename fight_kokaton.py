@@ -119,7 +119,7 @@ class Bomb:
 class Beam:
     def __init__(self, bird: Bird):
         """
-        あとでかく
+        あとでかく(これあかんやつ)
         """
         self.img = pg.transform.rotozoom(pg.image.load("fig/beam.png"), 0, 2.0)  # ビーム画像Surface
         self.rct: pg.Rect = self.img.get_rect()  # ビーム画像Rect
@@ -135,6 +135,14 @@ class Beam:
         if check_bound(self.rct) == (True, True):
             self.rct.move_ip(self.vx, self.vy)
             screen.blit(self.img, self.rct)
+
+class explosion():
+    beffect = pg.image.load("fig/explosion.gif")
+    fbeffect = pg.transform.flip(beffect,True,False)
+    life = 3 #爆発時間
+    def update(self,screen):
+        screen.blit(beffect,rct.center,rct.center)
+        life -= 1
 
 
 def main():
